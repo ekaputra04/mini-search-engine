@@ -17,10 +17,17 @@ def load_documents(folder_path):
     return documents, filenames
 
 stopwords_indonesia = set([
-    "yang", "dan", "di", "ke", "dari", "ini", "untuk", "dengan", "pada", "adalah", 
+    "yang", "dan", "di", "ke", "dari", "ini", "untuk", "dengan", "pada", "adalah",
     "itu", "dalam", "atau", "juga", "karena", "oleh", "sebagai", "saat", "tidak", "telah"
-    # Tambahkan sesuai kebutuhan
+    # Bisa ditambah sesuai kebutuhan
 ])
+
+def highlight_keywords(text, keywords):
+    for kw in keywords:
+        pattern = re.compile(rf"(?i)\b({re.escape(kw)})\b")
+        text = pattern.sub(r'**\1**', text)
+    return text
+
 
 def preprocess(text):
     text = text.lower()
@@ -30,4 +37,3 @@ def preprocess(text):
     text = ' '.join(words)
     text = stemmer.stem(text)
     return text
-
