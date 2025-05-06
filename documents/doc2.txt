@@ -1,0 +1,1 @@
+Python banyak digunakan dalam machine learning dan data science.

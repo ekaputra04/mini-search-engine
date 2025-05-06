@@ -1,0 +1,1 @@
+Bahasa pemrograman C lebih dekat ke mesin dibanding Python.
